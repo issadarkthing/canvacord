@@ -89,7 +89,7 @@ class Rank {
      */
     this.data = {
       width: 1000,
-      height: 320,
+      height: 380,
       background: {
         type: "color",
         image: "#23272A",
@@ -119,6 +119,24 @@ class Rank {
         y: 50,
         height: 180,
         width: 180,
+      },
+      bronze: {
+        source: "https://emoji.gg/assets/emoji/8300_Bronze.png",
+        value: 0,
+        x: 280,
+        y: 230,
+      },
+      silver: {
+        source: "https://emoji.gg/assets/emoji/5633_Silver.png",
+        value: 0,
+        x: 480,
+        y: 230,
+      },
+      gold: {
+        source: "https://www.unrankedsmurfs.com/storage/ruoxfp7El8hKfK6IFEK6i9zA0VPvlXa6ac5XG3HA.png",
+        value: 0,
+        x: 680,
+        y: 240,
       },
       status: {
         width: 5,
@@ -482,7 +500,20 @@ class Rank {
     return this;
   }
 
-  // setBronzeLogo(data) {}
+  setBronze(count: number) {
+    this.data.bronze.value = count;
+    return this;
+  }
+
+  setSilver(count: number) {
+    this.data.silver.value = count;
+    return this;
+  }
+
+  setGold(count: number) {
+    this.data.gold.value = count;
+    return this;
+  }
 
   /**
    * Builds rank card
@@ -605,8 +636,34 @@ class Rank {
     ctx.fillStyle = this.data.currentXP.color;
     ctx.fillText(Util.toAbbrev(this.data.currentXP.data), 800, 164);
 
-    // ctx.fillStyle = "#fff";
-    // await Util.renderEmoji(ctx, "🥉    🥈    🥇", 280, 270);
+    // draw medals
+    ctx.fillStyle = "#fff";
+    ctx.font = `60px ${ops.fontX}`;
+    const medalValueSpacing = 110;
+
+    const bronze = await Canvas.loadImage(this.data.bronze.source);
+    ctx.drawImage(bronze, this.data.bronze.x, this.data.bronze.y, 120, 120);
+    ctx.fillText(
+      this.data.bronze.value, 
+      this.data.bronze.x + medalValueSpacing, 
+      this.data.bronze.y + 85,
+    );
+
+    const silver = await Canvas.loadImage(this.data.silver.source);
+    ctx.drawImage(silver, this.data.silver.x, this.data.silver.y, 120, 120);
+    ctx.fillText(
+      this.data.silver.value, 
+      this.data.silver.x + medalValueSpacing, 
+      this.data.silver.y + 85,
+    );
+
+    const gold = await Canvas.loadImage(this.data.gold.source);
+    ctx.drawImage(gold, this.data.gold.x, this.data.gold.y, 100, 100);
+    ctx.fillText(
+      this.data.gold.value, 
+      this.data.gold.x + medalValueSpacing, 
+      this.data.gold.y + 75,
+    );
 
     // draw progressbar
     ctx.beginPath();

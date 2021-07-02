@@ -7,9 +7,10 @@ const rank = new canvacord.Rank()
     .setCurrentXP(50)
     .setRequiredXP(360)
     .setStatus("dnd")
-    .setProgressBar("#FFFFFF", "COLOR")
-    .setUsername("Snowflake")
-    .setDiscriminator("0007");
+    .setProgressBar("#FFFFFF", "COLOR", false)
+    .setUsername("Snowflake Game Master Foul Master")
+    .setBronze(5)
+    .setSilver(3)
 
 rank.build()
     .then(data => {
