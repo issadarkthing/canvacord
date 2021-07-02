@@ -218,18 +218,6 @@ class Rank {
     }
 
     /**
-     * Set discriminator
-     * @param {string|number} discriminator User discriminator
-     * @param {string} color Discriminator color
-     * @returns {Rank}
-     */
-    setDiscriminator(discriminator, color = "rgba(255, 255, 255, 0.4)") {
-        this.data.discriminator.discrim = !isNaN(discriminator) && `${discriminator}`.length === 4 ? discriminator : null;
-        this.data.discriminator.color = color && typeof color === "string" ? color : "rgba(255, 255, 255, 0.4)";
-        return this;
-    }
-
-    /**
      * Set progressbar style
      * @param {string|string[]} color Progressbar Color
      * @param {("COLOR"|"GRADIENT")} [fillType] Progressbar type
@@ -513,16 +501,6 @@ class Rank {
 
         // apply username
         !this.data.renderEmojis ? ctx.fillText(`${name}`, 257 + 18.5, 164) : await Util.renderEmoji(ctx, name, 257 + 18.5, 164);
-
-        // draw discriminator
-        if (!this.data.discriminator.discrim) throw new Error("Missing discriminator!");
-        const discrim = `${this.data.discriminator.discrim}`;
-        if (discrim) {
-            ctx.font = `${this.data.fontSize ?? '36px'} ${ops.fontY}`;
-            ctx.fillStyle = this.data.discriminator.color;
-            ctx.textAlign = "start";
-            ctx.fillText(`#${discrim.substr(0, 4)}`, ctx.measureText(name).width + 20 + 335, 164);
-        }
 
         // fill level
         if (this.data.level.display && !isNaN(this.data.level.data)) {
