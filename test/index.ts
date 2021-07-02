@@ -2,8 +2,6 @@ import canvacord from "../index";
 
 const img = "https://cdn.discordapp.com/embed/avatars/0.png";
 
-console.log(canvacord)
-
 const rank = new canvacord.Rank()
     .setAvatar(img)
     .setCurrentXP(50)
@@ -15,5 +13,5 @@ const rank = new canvacord.Rank()
 
 rank.build()
     .then(data => {
-        // canvacord.write(data, "RankCard.png");
+        canvacord.write(data, "RankCard.png");
     });
