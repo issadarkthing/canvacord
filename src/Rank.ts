@@ -89,7 +89,7 @@ class Rank {
          * @type {CanvacordRankData}
          */
         this.data = {
-            width: 934,
+            width: 1000,
             height: 282,
             background: {
                 type: "color",
@@ -100,7 +100,7 @@ class Rank {
                 x: 275.5,
                 y: 183.75,
                 height: 37.5,
-                width: 596.5,
+                width: 650,
                 track: {
                     color: "#484b4E"
                 },
@@ -497,7 +497,7 @@ class Rank {
         ctx.font = `bold ${this.data.fontSize ?? '36px'} ${ops.fontX}`;
         ctx.fillStyle = this.data.username.color;
         ctx.textAlign = "start";
-        const name = Util.shorten(this.data.username.name, 10);
+        const name = Util.shorten(this.data.username.name, 23);
 
         // apply username
         !this.data.renderEmojis ? ctx.fillText(`${name}`, 257 + 18.5, 164) : await Util.renderEmoji(ctx, name, 257 + 18.5, 164);
@@ -511,7 +511,7 @@ class Rank {
             ctx.font = `bold ${this.data.fontSize ?? '32px'} ${ops.fontX}`;
             ctx.fillStyle = this.data.level.color;
             ctx.textAlign = "end";
-            ctx.fillText(Util.toAbbrev(parseInt(this.data.level.data)), 860, 82);
+            ctx.fillText(Util.toAbbrev(parseInt(this.data.level.data)), 930, 82);
         }
 
         // fill rank
@@ -530,10 +530,10 @@ class Rank {
         ctx.font = `bold ${this.data.fontSize ?? '30px'} ${ops.fontX}`;
         ctx.fillStyle = this.data.requiredXP.color;
         ctx.textAlign = "start";
-        ctx.fillText("/ " + Util.toAbbrev(this.data.requiredXP.data), 670 + ctx.measureText(Util.toAbbrev(this.data.currentXP.data)).width + 15, 164);
+        ctx.fillText("/ " + Util.toAbbrev(this.data.requiredXP.data), 800 + ctx.measureText(Util.toAbbrev(this.data.currentXP.data)).width + 15, 164);
 
         ctx.fillStyle = this.data.currentXP.color;
-        ctx.fillText(Util.toAbbrev(this.data.currentXP.data), 670, 164);
+        ctx.fillText(Util.toAbbrev(this.data.currentXP.data), 800, 164);
 
         // draw progressbar
         ctx.beginPath();
