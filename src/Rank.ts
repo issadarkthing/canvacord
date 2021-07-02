@@ -120,11 +120,11 @@ class Rank {
         height: 180,
         width: 180,
       },
-      bronze: {
-        source: "https://emoji.gg/assets/emoji/8300_Bronze.png",
+      gold: {
+        source: "https://www.unrankedsmurfs.com/storage/ruoxfp7El8hKfK6IFEK6i9zA0VPvlXa6ac5XG3HA.png",
         value: 0,
         x: 280,
-        y: 230,
+        y: 240,
       },
       silver: {
         source: "https://emoji.gg/assets/emoji/5633_Silver.png",
@@ -132,11 +132,11 @@ class Rank {
         x: 480,
         y: 230,
       },
-      gold: {
-        source: "https://www.unrankedsmurfs.com/storage/ruoxfp7El8hKfK6IFEK6i9zA0VPvlXa6ac5XG3HA.png",
+      bronze: {
+        source: "https://emoji.gg/assets/emoji/8300_Bronze.png",
         value: 0,
         x: 680,
-        y: 240,
+        y: 230,
       },
       status: {
         width: 5,
