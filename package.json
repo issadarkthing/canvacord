@@ -9,7 +9,6 @@
     "docs:test": "docgen --source src --custom docs/index.yml",
     "build": "tsc",
     "test": "cd test && node .",
-    "prepare": "npm run build",
     "postinstall": "npm run build",
     "test:show": "node dist/test/index.js && sxiv RankCard.png"
   },
