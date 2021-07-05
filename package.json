@@ -10,6 +10,7 @@
     "build": "tsc",
     "test": "cd test && node .",
     "prepare": "npm run build",
+    "postinstall": "npm run build",
     "test:show": "node dist/test/index.js && sxiv RankCard.png"
   },
   "types": "./dist/index.d.ts",
