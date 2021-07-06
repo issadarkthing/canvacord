@@ -1,6 +1,6 @@
 {
   "name": "canvacord",
-  "version": "6.0.0-dev",
+  "version": "5.2.1",
   "description": "Powerful image manipulation package for beginners.",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
